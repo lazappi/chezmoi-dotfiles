@@ -1,6 +1,7 @@
 packages:
   darwin:
     brews:
+      - 'antidote'
       - 'atuin'
       - 'bash'
       - 'bat'
@@ -19,6 +20,7 @@ packages:
       - 'thefuck'
       - 'tldr'
       - 'zoxide'
+      - 'zsh'
     casks:
       - 'arc'
       - 'iterm2'
