@@ -2,3 +2,4 @@ channels:
   - conda-forge
   - bioconda
 channel_priority: strict
+auto_activate_base: false
