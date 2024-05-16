@@ -1,0 +1,29 @@
+packages:
+  darwin:
+    brews:
+      - 'atuin'
+      - 'bash'
+      - 'bat'
+      - 'cowsay'
+      - 'diff-so-fancy'
+      - 'eza'
+      - 'figlet'
+      - 'fortune'
+      - 'gh'
+      - 'git'
+      - 'git-extras'
+      - 'htop'
+      - 'lolcat'
+      - 'rm-improved'
+      - 'sl'
+      - 'thefuck'
+      - 'tldr'
+      - 'zoxide'
+    casks:
+      - 'arc'
+      - 'iterm2'
+      - 'rig'
+      - 'rstudio'
+      - 'spotify'
+      - 'visual-studio-code'
+
