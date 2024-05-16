@@ -1,0 +1,73 @@
+[user]
+  name = Luke Zappia
+  email = lazappi@users.noreply.github.com
+
+[core]
+  autocrlf = input
+  compression = 9
+  excludesfile = ~/.gitignore_global
+  filemode = false
+  editor = vim
+  whitespace = fix,blank-at-eol,space-before-tab,blank-at-eof,cr-at-eol,tab-in-indent
+  pager = diff-so-fancy | less --tabs=4 -RF
+
+[apply]
+  whitespace = fix
+
+[alias]
+  # Complex aliases from http://michaelwales.com/articles/make-gitconfig-work-for-you/
+
+  # Show all aliases
+  aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
+  # Amend commit
+  amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+  # Unstage changes
+  unstage = reset HEAD --
+  # Pretty log with tree
+  graph = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+[color]
+  ui = true
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = 11
+  frag = magenta bold
+  func = 146 bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = red
+
+[help]
+  autocorrect = 10
+
+[interactive]
+  diffFilter = diff-so-fancy --patch
+
+[push]
+  default = simple
+
+[merge]
+  log = true
+  ff = false
+  tool = vimdiff
+
+[rerere]
+  enabled = 1
+
