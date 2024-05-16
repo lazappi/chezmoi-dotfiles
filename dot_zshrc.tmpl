@@ -4,5 +4,22 @@ source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 {{ end }}
 antidote load
 
+# Initalise
+## thefuck
+eval $(thefuck --alias f)
+## zoxide
+eval "$(zoxide init zsh)"
+
+# Aliases
+## Utils
+alias cat='bat --paging=never'
+alias less=bat
+alias ls=eza
+alias ll='eza -l --header --git --time-style=long-iso'
+alias tree='eza --tree'
+alias grep='grep --color=auto'
+## Git
+alias gs='git status'
+
 # Put additional machine-specific content here
 source ~/.zshrc_local
