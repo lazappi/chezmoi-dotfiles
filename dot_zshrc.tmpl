@@ -1,25 +1,8 @@
-# Load antidote
+# Load plugins using antidote
 {{ if eq .chezmoi.os "darwin" }}
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 {{ end }}
 antidote load
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/luke.zappia/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/luke.zappia/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/luke.zappia/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/luke.zappia/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/Users/luke.zappia/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/Users/luke.zappia/miniforge3/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-
+# Put additional machine-specific content here
+source ~/.zshrc_local
