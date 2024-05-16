@@ -1,2 +1,3 @@
 zsh-users/zsh-autosuggestions
+MichaelAquilina/zsh-you-should-use
 zsh-users/zsh-syntax-highlighting # This should be last
