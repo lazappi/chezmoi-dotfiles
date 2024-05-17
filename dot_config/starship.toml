@@ -1,0 +1,205 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](fg:colour_orange)\
+$os\
+$username\
+$hostname\
+[](fg:colour_orange)\
+
+$conda\
+
+$git_branch\
+$git_status\
+$git_commit\
+$git_metrics\
+
+$rlang\
+$python\
+$quarto\
+
+$directory\
+
+$line_break\
+
+$time\
+
+$cmd_duration\
+$status\
+$sudo\
+$character"""
+
+# Newline between prompts
+add_newline = false
+
+palette = 'themes'
+
+[palettes.themes]
+colour_text = '#E6E6E6'
+colour_darkgrey = '#3C3836'
+colour_lightgrey = '#665C54'
+colour_failure = '#DA1A32'
+colour_success = '#007A3D'
+colour_failure_light = '#E86474'
+colour_success_light = '#3FD48A'
+colour_pink = '#EC008C'
+colour_blue = '#00ADEF'
+colour_green = '#8DC63F'
+colour_teal = '#00B7C6'
+colour_orange = '#F47920'
+colour_purple = '#7A52C7'
+
+[character]
+disabled = false
+success_symbol = '[\$](bold fg:colour_success)'
+error_symbol = '[\$](bold fg:colour_failure)'
+vimcmd_symbol = '[](bold fg:colour_success)'
+vimcmd_replace_one_symbol = '[](bold fg:coluor_purple)'
+vimcmd_replace_symbol = '[](bold fg:colour_purple)'
+vimcmd_visual_symbol = '[](bold fg:colour_orange)'
+
+[cmd_duration]
+style = "bg:colour_success fg:colour_text"
+format = '[](fg:colour_success)[󰑮 $duration]($style)[](fg:colour_success) '
+
+[conda]
+ignore_base = false
+style = "bg:colour_teal fg:colour_text"
+format = '[ ](fg:colour_teal)[$symbol $environment]($style)[](fg:colour_teal)'
+
+[directory]
+before_repo_root_style = "fg:colour_success_light"
+repo_root_style = "bold fg:colour_success"
+style = "fg:colour_text"
+format = "[($read_only )]($read_only_style)[$path]($style)"
+repo_root_format = '[($read_only )]($read_only_style)[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)'
+truncation_length = 4
+truncation_symbol = "…/"
+truncate_to_repo = false
+fish_style_pwd_dir_length = 3
+read_only = "󰌾"
+
+[git_branch]
+symbol = ""
+style = "bg:colour_purple fg:colour_text"
+format = '[ ](fg:colour_purple)[$symbol $branch(:$remote_name)(/$remote_branch)]($style)'
+
+[git_commit]
+tag_symbol = ' '
+tag_disabled = false
+only_detached = true
+style = "bg:colour_purple fg:colour_text"
+format = '[\($hash $tag\)]($style)'
+
+[git_metrics]
+added_style = "bg:colour_purple fg:colour_success_light"
+deleted_style = "bg:colour_purple fg:colour_failure_light"
+format = '([ +$added]($added_style))([ -$deleted]($deleted_style))[ ](fg:colour_purple)'
+disabled = false
+
+[git_status]
+style = "bg:colour_purple fg:colour_text"
+format = '([ \[$all_status$ahead_behind\]]($style))'
+
+[hostname]
+ssh_only = false
+ssh_symbol = ""
+style = "bg:colour_orange fg:colour_text"
+format = '[@$hostname( $ssh_symbol)]($style)'
+
+[line_break]
+disabled = false
+
+[os]
+disabled = false
+style = "bg:colour_orange fg:colour_text"
+format = '[$symbol]($style)'
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[python]
+symbol = ""
+style = "bg:colour_green fg:colour_text"
+format = '[](fg:colour_green)[$symbol $pyenv_prefix($version)(\($virtualenv\))]($style)[](fg:colour_green) '
+
+[quarto]
+symbol = "⨁"
+style = "bg:colour_pink fg:colour_text"
+format = '[](fg:colour_pink)[$symbol ($version)]($style)[](fg:colour_pink) '
+
+[rlang]
+symbol = "󰟔"
+style = "bg:colour_blue fg:colour_text"
+format = '[](fg:colour_blue)[$symbol ($version)]($style)[](fg:colour_blue) '
+
+[status]
+disabled = false
+map_symbol = true
+symbol = ""
+success_symbol = ""
+not_executable_symbol = ""
+not_found_symbol = "󰍉"
+sigint_symbol = ""
+signal_symbol = "󱐌"
+style = "bg:colour_failure fg:colour_text"
+format = '[](fg:colour_failure)[$symbol $status( $common_meaning)( $signal_name)( $maybe_int)]($style)[](fg:colour_failure) '
+
+[sudo]
+disabled = false
+symbol = "🪄  "
+format = '[$symbol]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:colour_darkgrey fg:colour_text"
+format = '[](fg:colour_darkgrey)[ $time]($style)[ ](fg:colour_darkgrey)'
+
+[username]
+show_always = true
+style_user = "bg:colour_orange fg:colour_text"
+style_root = "bg:colour_orange fg:colour_text"
+format = '[$user]($style)'

@@ -17,6 +17,7 @@ packages:
       - 'lolcat'
       - 'rm-improved'
       - 'sl'
+      - 'starship'
       - 'thefuck'
       - 'tldr'
       - 'zoxide'
@@ -24,6 +25,8 @@ packages:
     casks:
       - 'arc'
       - 'iterm2'
+      - 'font-fira-code'
+      - 'font-fira-code-nerd-font'
       - 'rig'
       - 'rstudio'
       - 'spotify'
