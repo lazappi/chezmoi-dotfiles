@@ -71,7 +71,7 @@ format = '[ ](fg:colour_teal)[$symbol $environment]($style)[](fg:colour_te
 before_repo_root_style = "fg:colour_success_light"
 repo_root_style = "bold fg:colour_success"
 style = "fg:colour_text"
-format = "[($read_only )]($read_only_style)[$path]($style)"
+format = " [($read_only )]($read_only_style)[$path]($style)"
 repo_root_format = '[($read_only )]($read_only_style)[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)'
 truncation_length = 4
 truncation_symbol = "…/"
@@ -94,7 +94,7 @@ format = '[\($hash $tag\)]($style)'
 [git_metrics]
 added_style = "bg:colour_purple fg:colour_success_light"
 deleted_style = "bg:colour_purple fg:colour_failure_light"
-format = '([ +$added]($added_style))([ -$deleted]($deleted_style))[ ](fg:colour_purple)'
+format = '([ +$added]($added_style))([ -$deleted]($deleted_style))[](fg:colour_purple)'
 disabled = false
 
 [git_status]
