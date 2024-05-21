@@ -1,7 +1,5 @@
 # Load plugins using antidote
-{{ if eq .chezmoi.os "darwin" }}
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-{{ end }}
 antidote load
 
 # Initalise
