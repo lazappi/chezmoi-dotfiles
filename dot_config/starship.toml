@@ -103,9 +103,9 @@ format = '([ \[$all_status$ahead_behind\]]($style))'
 
 [hostname]
 ssh_only = false
-ssh_symbol = ""
+ssh_symbol = " "
 style = "bg:colour_orange fg:colour_text"
-format = '[@$hostname( $ssh_symbol)]($style)'
+format = '[@$hostname$ssh_symbol]($style)'
 
 [line_break]
 disabled = false
