@@ -163,17 +163,17 @@ Windows = "󰍲 "
 [python]
 symbol = ""
 style = "bg:colour_green fg:colour_text"
-format = '[](fg:colour_green)[$symbol $pyenv_prefix($version)(\($virtualenv\))]($style)[](fg:colour_green) '
+format = ' [](fg:colour_green)[$symbol $pyenv_prefix($version)(\($virtualenv\))]($style)[](fg:colour_green)'
 
 [quarto]
 symbol = "⨁"
 style = "bg:colour_pink fg:colour_text"
-format = '[](fg:colour_pink)[$symbol ($version)]($style)[](fg:colour_pink) '
+format = ' [](fg:colour_pink)[$symbol ($version)]($style)[](fg:colour_pink)'
 
 [rlang]
 symbol = "󰟔"
 style = "bg:colour_blue fg:colour_text"
-format = '[](fg:colour_blue)[$symbol ($version)]($style)[](fg:colour_blue) '
+format = ' [](fg:colour_blue)[$symbol ($version)]($style)[](fg:colour_blue)'
 
 [status]
 disabled = false
