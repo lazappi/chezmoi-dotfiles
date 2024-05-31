@@ -189,7 +189,7 @@ format = '[](fg:colour_failure)[$symbol $status( $common_meaning)( $signal_na
 
 [sudo]
 disabled = false
-symbol = "🪄  "
+symbol = "🪄 "
 format = '[$symbol]($style)'
 
 [time]
