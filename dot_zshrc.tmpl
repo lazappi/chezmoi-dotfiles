@@ -2,6 +2,9 @@
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
+autoload -Uz compinit
+compinit -i
+
 # Initalise
 ## thefuck
 eval $(thefuck --alias f)
