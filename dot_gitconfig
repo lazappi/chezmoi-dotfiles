@@ -54,6 +54,9 @@
   changed = green
   untracked = red
 
+[init]
+  defaultBranch = main
+
 [help]
   autocorrect = 10
 
