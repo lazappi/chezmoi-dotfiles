@@ -10,3 +10,31 @@ System setup and dotfiles using [`chezmoi`](https://www.chezmoi.io/)
 4. Run `chezmoi apply`
 5. Setup SSH keys
 6. Push any changes
+
+## MacOS keyboard settings
+
+### Modifier keys
+
+**Internal**
+
+- Caps Lock -> Caps Lock
+- Control -> Command
+- Option -> Option
+- Command -> Control
+- Function -> Function
+
+**External (US)**
+
+- Caps Lock -> Caps Lock
+- Control -> Command
+- Option -> Control
+- Command -> Option
+- Function -> Function
+
+### Shortcuts
+
+**Mission Control**
+
+- Mission Control -> `^UP`
+  - Move left -> `^LEFT`
+  - Move right -> `^RIGHT`
