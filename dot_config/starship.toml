@@ -163,7 +163,7 @@ Windows = "󰍲 "
 [python]
 symbol = ""
 style = "bg:colour_green fg:colour_text"
-format = ' [](fg:colour_green)[$symbol $pyenv_prefix($version)(\($virtualenv\))]($style)[](fg:colour_green)'
+format = ' [](fg:colour_green)[$symbol $pyenv_prefix($version) (\($virtualenv\))]($style)[](fg:colour_green)'
 
 [quarto]
 symbol = "⨁"
