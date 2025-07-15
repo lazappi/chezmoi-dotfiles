@@ -1,10 +1,9 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-brew tap homebrew/cask-fonts
 brew tap r-lib/rig
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.brews -}}
 brew {{ . | quote }}
 {{ end -}}
@@ -13,4 +12,3 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 {{ end -}}
-
