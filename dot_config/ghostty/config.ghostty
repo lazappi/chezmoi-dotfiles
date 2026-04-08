@@ -1,5 +1,16 @@
+# TIP: Reload config with CTRL+SHIFT+,
+
+# Main theme
 theme = Tomorrow Night Blue
 
+# Cursor
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
+
+# Font
+font-family = ""
+font-family = "FiraCode Nerd Font Mono"
+font-family = "Menlo"
+font-family = "Courier New"
+
