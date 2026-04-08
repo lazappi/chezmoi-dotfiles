@@ -20,6 +20,7 @@ packages:
       - 'starship'
       - 'thefuck'
       - 'tldr'
+      - 'uv'
       - 'zoxide'
       - 'zsh'
     casks:
@@ -54,6 +55,7 @@ packages:
       - 'tldr'
       - 'tmux'
       - 'tpm'
+      - 'uv'
       - 'zoxide'
       - 'zsh'
 
