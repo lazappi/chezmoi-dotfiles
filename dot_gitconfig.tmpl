@@ -1,6 +1,10 @@
 [user]
   name = Luke Zappia
   email = lazappi@users.noreply.github.com
+{{- $signingKey := joinPath .chezmoi.homeDir ".ssh" "id_ed25519.pub" }}
+{{- if stat $signingKey }}
+  signingkey = {{ $signingKey }}
+{{- end }}
 
 [core]
   autocrlf = input
@@ -73,4 +77,14 @@
 
 [rerere]
   enabled = 1
+{{- if stat $signingKey }}
 
+[gpg]
+  format = ssh
+
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgsign = true
+{{- end }}
