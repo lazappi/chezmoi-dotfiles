@@ -1,0 +1,16 @@
+#!/bin/sh
+if ! command -v jq >/dev/null 2>&1; then
+  cat
+  exit 0
+fi
+exec jq -n '(input? // {})
+  | .attribution = {"commit": "", "pr": ""}
+{{- if lookPath "rtk" }}
+  | if [.hooks.PreToolUse[]?.hooks[]?.command // empty] | any(test("rtk hook claude"))
+    then .
+    else .hooks.PreToolUse += [{"matcher": "Bash", "hooks": [{"type": "command", "command": "rtk hook claude"}]}]
+    end
+{{- end }}
+{{- if lookPath "npx" }}
+  | .statusLine = {"type": "command", "command": "npx -y ccstatusline@latest", "padding": 0, "refreshInterval": 10}
+{{- end }}'
