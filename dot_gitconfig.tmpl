@@ -1,6 +1,6 @@
 [user]
   name = Luke Zappia
-  email = lazappi@users.noreply.github.com
+  email = {{ get . "git_email" | default "lazappi@users.noreply.github.com" }}
 {{- $signingKey := joinPath .chezmoi.homeDir ".ssh" "id_ed25519.pub" }}
 {{- if stat $signingKey }}
   signingkey = {{ $signingKey }}
@@ -29,6 +29,29 @@
   unstage = reset HEAD --
   # Pretty log with tree
   graph = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+  # Stacked branches from https://andrewlock.net/pushing-a-whole-stack-of-branches-with-a-single-git-command/
+  # Replaced by gh stack
+
+  # Get the default branch
+  # default-branch = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
+  # Get the merge base commit with the default branch on origin
+  # merge-base-origin ="!f() { git merge-base ${1-HEAD} origin/$(git default-branch); };f "
+  # Show the current branch stack
+  # stack = "!f() { \
+  #  BRANCH=${1-HEAD}; \
+  #  MERGE_BASE=$(git merge-base-origin $BRANCH); \
+  #   git log --decorate-refs=refs/heads --simplify-by-decoration --pretty=format:\"%(decorate:prefix=,suffix=,tag=,separator=%n)\" $MERGE_BASE..$BRANCH; \
+  # };f "
+  # Push the current branch stack. Give a branch name to push up to that branch.
+  # push-stack = "!f() { \
+  #   BRANCH=${1-HEAD}; \
+  #   git stack $BRANCH | xargs -I {} git push --force-with-lease origin {}; \
+  # };f "
+
+  # My aliases
+  ls = !git log --graph --date=relative --abbrev-commit -n 10 --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset'
+  ll = !git log --graph --abbrev-commit --all --format=format:'%C(yellow)%h%C(reset) - %C(bold cyan)%aD%C(reset) %Cgreen(%ar)%Creset%Cred%d%Creset%n''%C(white)%s%C(reset) %C(bold blue)<%an>%C(reset)'
 
 [color]
   ui = true
@@ -75,6 +98,9 @@
   ff = false
   tool = vimdiff
 
+[rebase]
+  updateRefs = true
+
 [rerere]
   enabled = 1
 {{- if stat $signingKey }}
@@ -87,4 +113,20 @@
 
 [tag]
   gpgsign = true
+{{- $allowedSigners := joinPath .chezmoi.homeDir ".ssh" "allowed_signers" }}
+{{- if stat $allowedSigners }}
+
+[gpg "ssh"]
+  allowedSignersFile = {{ $allowedSigners }}
+{{- end }}
+{{- end }}
+{{- with lookPath "gh" }}
+
+[credential "https://github.com"]
+  helper =
+  helper = !{{ . }} auth git-credential
+
+[credential "https://gist.github.com"]
+  helper =
+  helper = !{{ . }} auth git-credential
 {{- end }}
