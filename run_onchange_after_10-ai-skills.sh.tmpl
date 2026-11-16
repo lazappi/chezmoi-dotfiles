@@ -1,0 +1,21 @@
+#!/bin/bash
+# Clone and install the ai-skills repo, or update it if it is already cloned
+# ai-skills.yml hash: {{ include ".chezmoidata/ai-skills.yml" | sha256sum }}
+set -u
+dir={{ printf "%s/%s" .chezmoi.homeDir .ai_skills.dir | shellQuote }}
+warn() { echo "warning: ai-skills: $*" >&2; }
+
+for tool in git just; do
+  if ! command -v "$tool" >/dev/null 2>&1; then
+    warn "$tool not found, skipping"
+    exit 0
+  fi
+done
+
+if [ ! -d "$dir/.git" ]; then
+  mkdir -p "$(dirname "$dir")"
+  git clone {{ .ai_skills.repo | shellQuote }} "$dir" || { warn "clone failed"; exit 0; }
+  (cd "$dir" && just install) || warn "just install reported problems"
+else
+  (cd "$dir" && just update) || warn "just update reported problems"
+fi
