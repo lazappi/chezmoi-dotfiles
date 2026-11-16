@@ -203,3 +203,52 @@ show_always = true
 style_user = "bg:colour_orange fg:colour_text"
 style_root = "bg:colour_orange fg:colour_text"
 format = '[$user]($style)'
+
+# ── Claude Code status line ────────────────────────────────────────────────────
+
+[profiles]
+claude-code = "$claude_model$claude_context$claude_cost"
+
+[claude_model]
+symbol = "🤖 "
+style = "bg:colour_orange fg:colour_text bold"
+format = "[](fg:colour_orange)[ $symbol$model ]($style)[ ](fg:colour_orange)"
+
+[claude_context]
+gauge_width = 8
+gauge_full_symbol = "█"
+gauge_partial_symbol = "▓"
+gauge_empty_symbol = "░"
+format = "[](fg:colour_lightgrey)[ $gauge $input_tokens/$total_tokens ]($style)[ ](fg:colour_lightgrey)"
+
+[[claude_context.display]]
+threshold = 0.0
+style = "bg:colour_lightgrey fg:colour_success_light"
+
+[[claude_context.display]]
+threshold = 70.0
+style = "bg:colour_lightgrey fg:colour_orange"
+
+[[claude_context.display]]
+threshold = 90.0
+style = "bg:colour_lightgrey fg:colour_failure_light"
+
+[claude_cost]
+symbol = "💰 "
+format = "[](fg:colour_darkgrey)[ $symbol\\$$cost ]($style)[ ](fg:colour_darkgrey)"
+
+[[claude_cost.display]]
+threshold = 0.0
+hidden = true
+
+[[claude_cost.display]]
+threshold = 0.01
+style = "bg:colour_darkgrey fg:colour_text"
+
+[[claude_cost.display]]
+threshold = 1.00
+style = "bg:colour_darkgrey fg:colour_orange"
+
+[[claude_cost.display]]
+threshold = 5.00
+style = "bg:colour_darkgrey fg:colour_failure_light"
