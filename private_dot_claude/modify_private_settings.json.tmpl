@@ -4,7 +4,7 @@ if ! command -v jq >/dev/null 2>&1; then
   exit 0
 fi
 exec jq -n '(input? // {})
-  | .attribution = {"commit": "", "pr": ""}
+  | .attribution.commit = "" | .attribution.pr = ""
 {{- if lookPath "rtk" }}
   | if [.hooks.PreToolUse[]?.hooks[]?.command // empty] | any(test("rtk hook claude"))
     then .
