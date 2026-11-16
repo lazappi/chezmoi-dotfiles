@@ -1,0 +1,57 @@
+{
+    "save_workspace": "never",
+    "load_workspace": false,
+    "initial_working_directory": "~/Documents/Projects/_SCRATCH",
+    "restore_last_project": false,
+    "auto_detect_indentation": true,
+    "continue_comments_on_newline": true,
+    "highlight_selected_line": true,
+    "soft_wrap_r_files": true,
+    "scroll_past_end_of_document": true,
+    "highlight_r_function_calls": true,
+    "rainbow_parentheses": true,
+    "use_air_formatter": true,
+    "auto_append_newline": true,
+    "strip_trailing_whitespace": true,
+    "syntax_color_console": true,
+    "posix_terminal_shell": "zsh",
+    "editor_theme": "Tomorrow Night Blue",
+    "panes": {
+        "quadrants": [
+            "TabSet2",
+            "Console",
+            "TabSet1",
+            "Source"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Connections",
+            "Build",
+            "VCS",
+            "Tutorial",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Plots",
+            "Packages",
+            "Help",
+            "Viewer",
+            "Presentations"
+        ],
+        "hiddenTabSet": [],
+        "console_left_on_top": false,
+        "console_right_on_top": true,
+        "additional_source_columns": 0,
+        "sidebar": [
+            "Chat"
+        ],
+        "sidebar_visible": false,
+        "sidebar_location": "right"
+    },
+    "rmd_chunk_output_inline": false,
+    "visual_markdown_editing_show_margin": true,
+    "spelling_dictionary_language": "en_AU",
+    "copilot_indexing_enabled": true
+}
