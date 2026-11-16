@@ -26,5 +26,21 @@ eval $(thefuck --alias fix)
 ## Starship
 eval "$(starship init zsh)"
 
+## Local binaries
+export PATH="$HOME/.local/bin:$PATH"
+## direnv
+if command -v direnv >/dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
+
+{{- $miniforge := joinPath .chezmoi.homeDir "miniforge3" }}
+{{- if stat $miniforge }}
+
+## conda / mamba
+eval "$({{ $miniforge }}/bin/conda shell.zsh hook)"
+export MAMBA_ROOT_PREFIX='{{ $miniforge }}'
+eval "$({{ $miniforge }}/bin/mamba shell hook --shell zsh)"
+{{- end }}
+
 # Put additional machine-specific content here
 source ~/.zshrc_local
