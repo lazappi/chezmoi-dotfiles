@@ -1,0 +1,18 @@
+# Homebrew
+for brew in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+    if [ -x "$brew" ]; then
+        eval "$("$brew" shellenv zsh)"
+        break
+    fi
+done
+unset brew
+
+{{- if eq .chezmoi.os "darwin" }}
+# Load SSH keys from the macOS keychain
+ssh-add --apple-load-keychain -q 2>/dev/null
+{{- end }}
+
+# Put additional machine-specific content here
+if [ -f "$HOME/.zprofile_local" ]; then
+    . "$HOME/.zprofile_local"
+fi

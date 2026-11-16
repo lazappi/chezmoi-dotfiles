@@ -1,0 +1,9 @@
+# Rust
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
+
+# Put additional machine-specific content here
+if [ -f "$HOME/.zshenv_local" ]; then
+    . "$HOME/.zshenv_local"
+fi
